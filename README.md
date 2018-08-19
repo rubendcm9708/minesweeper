@@ -5,7 +5,7 @@
 
 This is minesweeper game developed by me for the PSL Challenge
 
-This game was made with JAVA-SE10 on Eclipse. To run the game just download **minesweeper.jar**, and execute the following on a windows CMD console:  
+This game was made with JAVA-SE10 on Eclipse. To run the game just download **minesweeper.jar**, and execute the following on a Windows CMD:  
 
 ```
 java -jar minesweeper.jar  
