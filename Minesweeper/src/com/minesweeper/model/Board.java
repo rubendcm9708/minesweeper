@@ -243,7 +243,7 @@ public class Board {
   		if ((i - 1 >= 0) && (j - 1 >= 0)) {
   			Cell temp = this.cells[(i - 1)][(j - 1)];
   			//Check if the cell is not marked
-  			if (temp.getCellState() != Cell.MARKED) {
+  			if (temp.getCellState() == Cell.COVERED) {
   				//Uncover the cell
   				temp.setCellState(Cell.UNCOVERED);
   				this.numUncovered += 1;
@@ -258,7 +258,7 @@ public class Board {
   		if (i - 1 >= 0) {
   			Cell temp = this.cells[(i - 1)][j];
   			//Check if the cell is empty and covered
-  			if (temp.getCellState() != Cell.MARKED) {
+  			if (temp.getCellState() == Cell.COVERED) {
   				//Uncover the cell
   				temp.setCellState(Cell.UNCOVERED);
   				this.numUncovered += 1;
@@ -272,7 +272,7 @@ public class Board {
   		if ((i - 1 >= 0) && (j + 1 < this.width)) {
   			Cell temp = this.cells[(i - 1)][(j + 1)];
   			//Check if the cell is empty and covered
-  			if (temp.getCellState() != Cell.MARKED) {
+  			if (temp.getCellState() == Cell.COVERED) {
   				//Uncover the cell
   				temp.setCellState(Cell.UNCOVERED);
   				this.numUncovered += 1;
@@ -286,7 +286,7 @@ public class Board {
   		if (j + 1 < this.width) {
   			Cell temp = this.cells[i][(j + 1)];
   			//Check if the cell is not marked	
-  			if (temp.getCellState() != Cell.MARKED) {
+  			if (temp.getCellState() == Cell.COVERED) {
   				//Uncover the cell
   				temp.setCellState(Cell.UNCOVERED);
   				this.numUncovered += 1;
@@ -300,7 +300,7 @@ public class Board {
   		if ((i + 1 < this.height) && (j + 1 < this.width)) {
   			Cell temp = this.cells[(i + 1)][(j + 1)];
   			//Check if the cell is not marked
-  			if (temp.getCellState() != Cell.MARKED) {
+  			if (temp.getCellState() == Cell.COVERED) {
   				//Uncover the cell
   				temp.setCellState(Cell.UNCOVERED);
   				this.numUncovered += 1;
@@ -314,7 +314,7 @@ public class Board {
   		if (i + 1 < this.height) {
   			Cell temp = this.cells[(i + 1)][j];
   			//Check if the cell is not marked
-  			if (temp.getCellState() != Cell.MARKED) {
+  			if (temp.getCellState() == Cell.COVERED) {
   				//Uncover the cell
   				temp.setCellState(Cell.UNCOVERED);
   				this.numUncovered += 1;
@@ -328,7 +328,7 @@ public class Board {
   		if ((i + 1 < this.height) && (j - 1 >= 0)) {
   			Cell temp = this.cells[(i + 1)][(j - 1)];
   			//Check if the cell is not marked
-  			if (temp.getCellState() != Cell.MARKED) {
+  			if (temp.getCellState() == Cell.COVERED) {
   				//Uncover the cell
   				temp.setCellState(Cell.UNCOVERED);
   				this.numUncovered += 1;
@@ -342,7 +342,7 @@ public class Board {
   		if (j - 1 >= 0) {
   			Cell temp = this.cells[i][(j - 1)];
   			//Check if the cell is not marked
-  			if (temp.getCellState() != Cell.MARKED) {
+  			if (temp.getCellState() == Cell.COVERED) {
   				//Uncover the cell
   				temp.setCellState(Cell.UNCOVERED);
   				this.numUncovered += 1;
