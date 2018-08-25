@@ -33,7 +33,7 @@ For a board like the example, type '5 8 10'.
 
 3. To mark a cell type Column, File and 'M'. Values must be separated by a blank space.  
 
-4. You win when you all mines are marked and all empty cells are uncovered.  
+4. You win when all mines are marked and all empty cells are uncovered.  
 
 5. If you uncover a mine, **game is over**.  
 
