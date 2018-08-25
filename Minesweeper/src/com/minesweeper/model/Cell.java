@@ -1,5 +1,5 @@
 package com.minesweeper.model;
-	/**This class represents a Cell
+	/**This class represents a Cell on the board
 	 * 
 	 * @author rubendcm9708
 	 *
@@ -12,29 +12,29 @@ public class Cell{
 	/**
 	 * Cell is covered
 	 */
-	public static final int CELL_COVERED = 0;
+	public static final int COVERED = 0;
 	/**
 	 * Cell is uncovered
 	 */
-	public static final int CELL_UNCOVERED = 1;
+	public static final int UNCOVERED = 1;
 	/**
 	 * Cell is marked
 	 */
-	public static final int CELL_MARKED = 2;
+	public static final int MARKED = 2;
 	/**
 	 * Cell is empty
 	 */
-	public static final int CELL_EMPTY = 3;
+	public static final int EMPTY = 3;
 	/**
 	 * Cell has a mine
 	 */
-	public static final int CELL_WITH_MINE = 4;
+	public static final int MINE = 4;
 	/**
 	 * Cell has exploded
 	 */
 	public static final int MINE_EXPLODED = 5;
 	//---------------------------------------------------
-	//Constants
+	//Attributs
 	//---------------------------------------------------
 	/**
 	 * X position of the Cell on the board
@@ -63,85 +63,110 @@ public class Cell{
 	 * @param posY Y position of the cell on the board
 	 */
 	public Cell(int posX, int posY){
+		//Set X and Y
 		setPosX(posX);
 		setPosY(posY);
-		
-		setCellState(CELL_COVERED);
-		setHasMine(CELL_EMPTY);
+		//Initalize the cell as covered and empty
+		setCellState(COVERED);
+		setHasMine(EMPTY);
 	}
 	//---------------------------------------------------
-	//Constants	
+	//Methods
 	//---------------------------------------------------
-	/**
+	
+	/**Get the current X position of the cell
 	 * 
-	 * @return
+	 * @return X position of the cell on the board
 	 */
-	public int getPosX()
-	{	
+	public int getPosX() {	
 		return this.posX;
 	}
-	/**
+	/**Set a new X position for the cell 
 	 * 
-	 * @param posX
+	 * @param posX new X position of the cell on the board
 	 */
-	public void setPosX(int posX)
-	{
+	public void setPosX(int posX) {
 		this.posX = posX;
 	}
-	
+	/**Get the current Y position of the cell
+	 * 
+	 * @return Y position of the cell on the board
+	 */
 	public int getPosY()
 	{
 		return this.posY;
 	}
-	
-	public void setPosY(int posY)
-	{
+	/**Set a new Y position for the cell 
+	 * 
+	 * @param posY new Y position of the cell on the board
+	 */
+	public void setPosY(int posY) {
 		this.posY = posY;
 	}
-	
-	public int getCellState()
-	{
+	/**Get the current state of the cell
+	 * 
+	 * @return state of the cell
+	 */
+	public int getCellState() {
 		return this.cellState;
 	}
-	
-	public void setCellState(int cellState)
-	{
+	/**Set a new state for the cell
+	 * 
+	 * @param cellState new state of the cell
+	 */
+	public void setCellState(int cellState)	{
 		this.cellState = cellState;
 	}
-	
-	public int getMinesAround()
-  	{
+	/**Get the number of mines around the cell
+	 * 
+	 * @return number of mines around the cell
+	 */
+	public int getMinesAround()	{
 		return this.minesAround;
   	}
-	
-	public void setMinesAround(int minesAround)
-	{
-		this.minesAround = minesAround;
+	/**Add one to the current number of mines around
+	 * 
+	 */
+	public void addMinesAround() {
+		this.minesAround++;
 	}
-	
-	public int getHasMine()
-  	{
+	/**The cell has a mine or not
+	 * 
+	 * @return true or false if the cell has a mine or not
+	 */
+	public int getHasMine()	{
 		return this.hasMine;
   	}
-	
-	public void setHasMine(int hasMine)
-	{
+	/**Set the cell with a mine or is empty
+	 * 
+	 * @param hasMine the cell has a mine or is empty
+	 */
+	public void setHasMine(int hasMine)	{
 		this.hasMine = hasMine;
 	}
-	
-	public String toString()
-	{
-		if (this.cellState == CELL_COVERED) {
+	/**
+	 * Get the string representation of the cell
+	 * 
+	 * @return String that represents the cell on the board
+	 */
+	public String toString() {
+		//Return * if the mine has exploded
+		if (this.cellState == MINE_EXPLODED) {
+			return "*";
+		}
+		//Return . if the cell is covered
+		if (this.cellState == COVERED) {
 			return ".";
 		}
-		if (this.cellState == CELL_MARKED) {
+		//Return P if the cell is marked
+		if (this.cellState == MARKED) {
 			return "P";
 		}
-			if ((this.cellState == CELL_UNCOVERED) && (getMinesAround() != 0))
-					return this.minesAround+"";
-			if (this.cellState == MINE_EXPLODED) {
-					return "*";
-			}
-			return "-";
+		//Return a number from 1 to 8 if the cell has mines around and is uncovered
+		if ((this.cellState == UNCOVERED) && (getMinesAround() != 0)) {
+			return minesAround+"";
+		}
+		//Return - if the cell is uncovered and has no mines around
+		return "-";
 	}
-	}
+}
